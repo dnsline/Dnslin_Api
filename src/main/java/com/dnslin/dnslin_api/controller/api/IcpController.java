@@ -33,6 +33,7 @@ public class IcpController {
                 String data = icpforRecordService.initiateRequest(cookie, token, domain);
                 JSONObject jsonObject = JSONObject.parseObject(data);
                 list = jsonObject.getJSONObject("params").getString("list").replace("[","").replace("]","");
+
             }else{
                 return new R(ResponseEnum.Cookie_not_found,null);
             }
