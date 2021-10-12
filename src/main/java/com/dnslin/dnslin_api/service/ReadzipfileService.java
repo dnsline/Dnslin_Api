@@ -45,13 +45,12 @@ public class ReadzipfileService {
     public String getTheFileFromTheURL() {
         String url = "https://idea.medeming.com/a/jihuoma1.zip";
         String fileName = url.substring(url.lastIndexOf('/'), url.length());
-        File theFileObject = new File("G:\\move\\" + fileName + "1");
+        File theFileObject = new File("/root/" + fileName);
         try {
             HttpGet httpget = new HttpGet(url);
             HttpResponse response = httpclient.execute(httpget);
             HttpEntity entity = response.getEntity();
             InputStream in = entity.getContent();
-            File file = new File("D:/temp/123.jpg");//这里为存储路径/xx/xx..
             FileOutputStream fout = new FileOutputStream(theFileObject);
             int i = -1;
             byte[] tmp = new byte[1024];
@@ -93,7 +92,7 @@ public class ReadzipfileService {
 
         //获取文件输入流
         try {
-            FileInputStream input = new FileInputStream("G:\\move\\" + fileName);
+            FileInputStream input = new FileInputStream("/root/" + fileName);
 
             //获取ZIP输入流(一定要指定字符集Charset.forName("GBK")否则会报java.lang.IllegalArgumentException: MALFORMED)
             ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(input), StandardCharsets.UTF_8);
