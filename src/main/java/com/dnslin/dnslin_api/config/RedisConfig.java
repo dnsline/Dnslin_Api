@@ -24,6 +24,9 @@ public class RedisConfig {
     @Value("${spring.redis.host}")
     private String host;
 
+    @Value("${spring.redis.password}")
+    private String password;
+
     @Value("${spring.redis.port}")
     private int port;
 
@@ -52,6 +55,7 @@ public class RedisConfig {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
         redisStandaloneConfiguration.setDatabase(database);
         redisStandaloneConfiguration.setHostName(host);
+        redisStandaloneConfiguration.setPassword(password);
         redisStandaloneConfiguration.setPort(port);
         // redisStandaloneConfiguration.setPassword(RedisPassword.of(password));
         LettuceClientConfiguration clientConfig = LettucePoolingClientConfiguration.builder()
