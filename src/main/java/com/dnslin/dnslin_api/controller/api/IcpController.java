@@ -1,5 +1,6 @@
 package com.dnslin.dnslin_api.controller.api;
 
+import cn.hutool.core.lang.Console;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.dnslin.dnslin_api.DTO.IcpInfoDTO;
@@ -35,6 +36,7 @@ public class IcpController {
                 String data = icpforRecordService.initiateRequest(cookie, token, domain);
                 JSONObject jsonObject = JSONObject.parseObject(data);
                 list = jsonObject.getJSONObject("params").getString("list").replace("[","").replace("]","");
+                Console.log(list);
                 icpInfoDTO = JSON.parseObject(list, IcpInfoDTO.class);
             }else{
                 return new R(ResponseEnum.Cookie_not_found,null);

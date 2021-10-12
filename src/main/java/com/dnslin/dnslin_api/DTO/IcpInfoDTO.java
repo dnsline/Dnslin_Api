@@ -13,13 +13,13 @@ public class IcpInfoDTO {
     private String natureName;
     private String serviceName;
     private String updateRecordTime;
-    private Long domainId;
+    private String domainId;
     private String homeUrl;
     private String serviceLicence;
     private String leaderName;
     private String domain;
     private String mainLicence;
-    private Integer mainId;
-    private Integer serviceId;
+    private String mainId;
+    private String serviceId;
     private String contentTypeName;
 }
