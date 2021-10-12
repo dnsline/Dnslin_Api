@@ -19,7 +19,24 @@
 - [ ] 网易云歌曲热评
 - [ ] 腾讯天气API
 
++ ICP备案信息查询
+```url
+例：
+    methods: GET
+    参数:String domain
+    请求地址: url/api/icp?domain="domain" 
+    domain[baidu.com]
+```
 
++ IDEA激活码获取
+```url
+ 例：
+    methods: GET
+    参数:None
+    请求地址: url/api/cdkey
+ ```
+
+**TODO: IP查询**
 
 > 目前大多数未实现  
 by [林祈](https://dnslin.com)
