@@ -1,5 +1,6 @@
 package com.dnslin.dnslin_api.controller.api;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dnslin.dnslin_api.result.R;
 import com.dnslin.dnslin_api.result.ResponseEnum;
 import com.dnslin.dnslin_api.service.IcpforRecordService;
@@ -23,13 +24,15 @@ public class IcpController {
 
     @GetMapping("/icp")
     public R obtainingDomainNameInformation(String domain) throws IOException, NoSuchAlgorithmException {
-        String data = null;
+        String  list = null;
         System.out.println(domain);
         String cookie = icpforRecordService.getCookie();
         if (cookie!=null){
             String token = icpforRecordService.requestToGetToken(cookie);
             if (token!=null){
-                data = icpforRecordService.initiateRequest(cookie, token, domain);
+                String data = icpforRecordService.initiateRequest(cookie, token, domain);
+                JSONObject jsonObject = JSONObject.parseObject(data);
+                list = jsonObject.getJSONObject("params").getString("list").replace("[","").replace("]","");
             }else{
                 return new R(ResponseEnum.Cookie_not_found,null);
             }
@@ -37,7 +40,6 @@ public class IcpController {
         }else{
             return new R(ResponseEnum.Token_invalid,null);
         }
-        System.out.println(data);
-        return new R(ResponseEnum.SUCCESS,data);
+        return new R(ResponseEnum.SUCCESS,list);
     }
 }
