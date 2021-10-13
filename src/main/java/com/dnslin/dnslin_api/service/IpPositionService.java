@@ -96,9 +96,9 @@ public class IpPositionService {
      * @param  ip-api
      * @return JSON XML CSV Newline PHP
      */
-    public IPAPIS getIpapi(String format, String ipaddress, String lang) {
+    public IPAPIS getIpapi(String formats, String ipaddress, String lang) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet get = new HttpGet("http://ip-api.com/" + format + "/" + ipaddress + "?fields=66846719&&lang=" + lang);
+        HttpGet get = new HttpGet("http://ip-api.com/" + formats + "/" + ipaddress + "?fields=66846719&&lang=" + lang);
         IPAPIS ipapis = null;
         try {
             HttpEntity entity = httpClient.execute(get).getEntity();
@@ -117,17 +117,15 @@ public class IpPositionService {
     }
 
 
-    public List<Object> dataIntegration(String format, String ipaddress, String lang,String fields) {
+    public List<Object> dataIntegration(String format,String formats, String ipaddress, String lang, String fields) {
         IpPositionService ipPositionService = new IpPositionService();
         Ipstack ipstack = ipPositionService.getIpstack(ipaddress);
         IPAPI ipapi = ipPositionService.getIPAPI(ipaddress, format, fields);
-        IPAPIS ipapis = ipPositionService.getIpapi(format, ipaddress, lang);
+        IPAPIS ipapis = ipPositionService.getIpapi(formats, ipaddress, lang);
         ArrayList<Object> objects = new ArrayList<>();
         objects.add(ipapis);
         objects.add(ipstack);
         objects.add(ipapi);
         return objects;
     }
-
-
 }

@@ -1,12 +1,29 @@
 package com.dnslin.dnslin_api.controller.api;
 
+import com.dnslin.dnslin_api.result.R;
+import com.dnslin.dnslin_api.result.ResponseEnum;
+import com.dnslin.dnslin_api.service.IpPositionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
 public class IPPositionController {
+    @Autowired
+    private IpPositionService ipPositionService;
 
+    @GetMapping("/IPPosition/")
+    public R getIPPosition(String format,String formats, String ipaddress, String lang, String fields) {
+        if (fields == null || fields.isEmpty()) {
+            fields = "";
+        }
+        List<Object> objects = ipPositionService.dataIntegration(format,formats,ipaddress, lang, fields);
+        return new R(ResponseEnum.SUCCESS, objects);
+    }
 }
