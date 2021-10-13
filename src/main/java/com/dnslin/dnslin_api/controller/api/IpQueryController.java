@@ -17,6 +17,9 @@ public class IpQueryController {
 
     @GetMapping("/ipquerys")
     public R requestBatchQuery(String ipaddress, String lang) {
+        if (ipaddress == null || ipaddress.isEmpty() || lang == null || lang.isEmpty() ) {
+            return new R(ResponseEnum.PARAMETERS_ARE_MISSING, null);
+        }
         JSONArray objects = ipQueryService.postRequestInterface(ipaddress, lang);
         return new R(ResponseEnum.SUCCESS,objects);
     }
