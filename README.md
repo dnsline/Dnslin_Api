@@ -303,7 +303,7 @@
   ]
 }
 ```
-**TODO: IP批量查询**
+**TODO: 国内IP定位查询**
 
 > 目前大多数未实现  
 by [林祈](https://dnslin.com)
