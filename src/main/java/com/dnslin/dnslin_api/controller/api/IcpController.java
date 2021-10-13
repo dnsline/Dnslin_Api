@@ -8,7 +8,6 @@ import com.dnslin.dnslin_api.result.R;
 import com.dnslin.dnslin_api.result.ResponseEnum;
 import com.dnslin.dnslin_api.service.IcpforRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,6 @@ import java.security.NoSuchAlgorithmException;
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
-@Controller
 public class IcpController {
     @Autowired
     private IcpforRecordService icpforRecordService;
