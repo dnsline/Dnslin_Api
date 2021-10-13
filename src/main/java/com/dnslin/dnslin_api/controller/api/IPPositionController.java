@@ -18,7 +18,7 @@ public class IPPositionController {
     @Autowired
     private IpPositionService ipPositionService;
 
-    @GetMapping("/IPPosition/")
+    @GetMapping("/IPPosition")
     public R getIPPosition(String format, String ipaddress, String lang, String fields) {
         if ( format == null || format.isEmpty() || ipaddress == null || ipaddress.isEmpty() || lang == null || lang.isEmpty() ) {
             return new R(ResponseEnum.PARAMETERS_ARE_MISSING, null);
