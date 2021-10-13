@@ -20,10 +20,13 @@ public class IPPositionController {
 
     @GetMapping("/IPPosition/")
     public R getIPPosition(String format, String ipaddress, String lang, String fields) {
+        if (format.isEmpty() && format == null && ipaddress.isEmpty() && ipaddress == null && lang.isEmpty() && lang == null) {
+            return new R(ResponseEnum.PARAMETERS_ARE_MISSING, null);
+        }
         if (fields == null || fields.isEmpty()) {
             fields = "";
         }
-        List<Object> objects = ipPositionService.dataIntegration(format,ipaddress, lang, fields);
+        List<Object> objects = ipPositionService.dataIntegration(format, ipaddress, lang, fields);
         return new R(ResponseEnum.SUCCESS, objects);
     }
 }

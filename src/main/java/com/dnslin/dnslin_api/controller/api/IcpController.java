@@ -25,24 +25,27 @@ public class IcpController {
 
     @GetMapping("/icp")
     public R obtainingDomainNameInformation(String domain) throws IOException, NoSuchAlgorithmException {
-        String  list = null;
+        if (domain.isEmpty() && domain == null) {
+            return new R(ResponseEnum.PARAMETERS_ARE_MISSING,null);
+        }
+        String list = null;
         IcpInfoDTO icpInfoDTO;
         String cookie = icpforRecordService.getCookie();
-        if (cookie!=null){
+        if (cookie != null) {
             String token = icpforRecordService.requestToGetToken(cookie);
-            if (token!=null){
+            if (token != null) {
                 String data = icpforRecordService.initiateRequest(cookie, token, domain);
                 JSONObject jsonObject = JSONObject.parseObject(data);
-                list = jsonObject.getJSONObject("params").getString("list").replace("[","").replace("]","");
+                list = jsonObject.getJSONObject("params").getString("list").replace("[", "").replace("]", "");
                 Console.log(list);
                 icpInfoDTO = JSON.parseObject(list, IcpInfoDTO.class);
-            }else{
-                return new R(ResponseEnum.Cookie_not_found,null);
+            } else {
+                return new R(ResponseEnum.Cookie_not_found, null);
             }
 
-        }else{
-            return new R(ResponseEnum.Token_invalid,null);
+        } else {
+            return new R(ResponseEnum.Token_invalid, null);
         }
-        return new R(ResponseEnum.SUCCESS,icpInfoDTO);
+        return new R(ResponseEnum.SUCCESS, icpInfoDTO);
     }
 }

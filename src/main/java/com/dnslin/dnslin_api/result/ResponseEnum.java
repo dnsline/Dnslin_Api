@@ -36,7 +36,8 @@ public enum ResponseEnum {
     HAVE_POWER("501","你已经助力过了"),
     LIST_ERROR("502","数据格式异常"),
     Cookie_not_found("504","Cookie获取失败"),
-    Token_invalid("504","Token失效")
+    Token_invalid("504","Token失效"),
+    PARAMETERS_ARE_MISSING("505","参数缺失")
     ;
 
 
