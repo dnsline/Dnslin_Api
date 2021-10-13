@@ -37,7 +37,7 @@ public class IcpController {
                 JSONObject jsonObject = JSONObject.parseObject(data);
                 list = jsonObject.getJSONObject("params").getString("list").replace("[","").replace("]","");
                 Console.log(list);
-                icpInfoDTO = JSON.parseObject(list, IcpIIpPositionnfoDTO.class);
+                icpInfoDTO = JSON.parseObject(list, IcpInfoDTO.class);
             }else{
                 return new R(ResponseEnum.Cookie_not_found,null);
             }
