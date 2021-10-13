@@ -20,7 +20,7 @@ public class IPPositionController {
 
     @GetMapping("/IPPosition/")
     public R getIPPosition(String format, String ipaddress, String lang, String fields) {
-        if (format.isEmpty() && format == null && ipaddress.isEmpty() && ipaddress == null && lang.isEmpty() && lang == null) {
+        if ( format == null && format.isEmpty() && ipaddress == null && ipaddress.isEmpty() && lang == null && lang.isEmpty() ) {
             return new R(ResponseEnum.PARAMETERS_ARE_MISSING, null);
         }
         if (fields == null || fields.isEmpty()) {

@@ -25,7 +25,7 @@ public class IcpController {
 
     @GetMapping("/icp")
     public R obtainingDomainNameInformation(String domain) throws IOException, NoSuchAlgorithmException {
-        if (domain.isEmpty() && domain == null) {
+        if (domain == null && domain.isEmpty()) {
             return new R(ResponseEnum.PARAMETERS_ARE_MISSING,null);
         }
         String list = null;
