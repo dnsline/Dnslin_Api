@@ -208,8 +208,101 @@
 }
 ```
 
-
 + IP批量查询
+```
+ 例：
+    methods: GET
+    请求地址: url/api/IPPosition
+    参数:
+        String ipaddress
+        String lang
+    + ipaddress 格式: 1.1.1.1,223.5.5.5,3.3.3.3(英文逗号隔开,最多同时支持100个IP查询)
+    + lang 参数: en de es pt-BR ja fr zh-CN ru 
+    url示例: url/api/ipquerys?ipaddress=1.1.1.1,223.5.5.5,3.3.3.3&lang=zh-CN
+```
+```json
+{
+  "code": "200",
+  "message": "成功003",
+  "data": [
+    {
+      "continent": "大洋洲",
+      "zip": "4101",
+      "country": "澳大利亞",
+      "offset": 36000,
+      "city": "South Brisbane",
+      "org": "APNIC and Cloudflare DNS Resolver project",
+      "timezone": "Australia/Brisbane",
+      "hosting": true,
+      "regionName": "Queensland",
+      "isp": "Cloudflare, Inc",
+      "query": "1.1.1.1",
+      "mobile": false,
+      "lon": 153.0166,
+      "proxy": false,
+      "as": "AS13335 Cloudflare, Inc.",
+      "asname": "CLOUDFLARENET",
+      "countryCode": "AU",
+      "district": "",
+      "currency": "AUD",
+      "region": "QLD",
+      "lat": -27.4766,
+      "status": "success",
+      "continentCode": "OC"
+    },
+    {
+      "continent": "亚洲",
+      "zip": "",
+      "country": "中国",
+      "offset": 28800,
+      "city": "杭州",
+      "org": "Aliyun Computing Co., LTD",
+      "timezone": "Asia/Shanghai",
+      "hosting": true,
+      "regionName": "浙江省",
+      "isp": "Hangzhou Alibaba Advertising Co",
+      "query": "223.5.5.5",
+      "mobile": false,
+      "lon": 120.1612,
+      "proxy": true,
+      "as": "AS45102 Alibaba (US) Technology Co., Ltd.",
+      "asname": "CNNIC-ALIBABA-US-NET-AP",
+      "countryCode": "CN",
+      "district": "",
+      "currency": "CNY",
+      "region": "ZJ",
+      "lat": 30.2994,
+      "status": "success",
+      "continentCode": "AS"
+    },
+    {
+      "continent": "北美洲",
+      "zip": "98109",
+      "country": "美国",
+      "offset": -25200,
+      "city": "Seattle",
+      "org": "Amazon Technologies Inc",
+      "timezone": "America/Los_Angeles",
+      "hosting": false,
+      "regionName": "华盛顿州",
+      "isp": "Amazon Technologies Inc.",
+      "query": "3.3.3.3",
+      "mobile": false,
+      "lon": -122.337,
+      "proxy": false,
+      "as": "",
+      "asname": "",
+      "countryCode": "US",
+      "district": "South Lake Union",
+      "currency": "USD",
+      "region": "WA",
+      "lat": 47.6222,
+      "status": "success",
+      "continentCode": "NA"
+    }
+  ]
+}
+```
 **TODO: IP批量查询**
 
 > 目前大多数未实现  
