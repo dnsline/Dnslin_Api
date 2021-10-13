@@ -19,11 +19,11 @@ public class IPPositionController {
     private IpPositionService ipPositionService;
 
     @GetMapping("/IPPosition/")
-    public R getIPPosition(String format,String formats, String ipaddress, String lang, String fields) {
+    public R getIPPosition(String format, String ipaddress, String lang, String fields) {
         if (fields == null || fields.isEmpty()) {
             fields = "";
         }
-        List<Object> objects = ipPositionService.dataIntegration(format,formats,ipaddress, lang, fields);
+        List<Object> objects = ipPositionService.dataIntegration(format,ipaddress, lang, fields);
         return new R(ResponseEnum.SUCCESS, objects);
     }
 }

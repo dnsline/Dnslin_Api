@@ -116,11 +116,11 @@ public class IpPositionService {
     }
 
 
-    public List<Object> dataIntegration(String format,String formats, String ipaddress, String lang, String fields) {
+    public List<Object> dataIntegration(String format,String ipaddress, String lang, String fields) {
         IpPositionService ipPositionService = new IpPositionService();
         Ipstack ipstack = ipPositionService.getIpstack(ipaddress);
         IPAPI ipapi = ipPositionService.getIPAPI(ipaddress, format, fields);
-        IPAPIS ipapis = ipPositionService.getIpapi(formats, ipaddress, lang);
+        IPAPIS ipapis = ipPositionService.getIpapi(format, ipaddress, lang);
         ArrayList<Object> objects = new ArrayList<>();
         objects.add(ipapis);
         objects.add(ipstack);
