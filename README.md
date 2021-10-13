@@ -46,7 +46,7 @@
 | String format                          | String formats                  | String ipaddress | String lang | String fields |
 | -------------------------------------- | ------------------------------- | ---------------- | ----------- | ------------- |
 | String                                 | String                          | String           | String      | String        |
-| `json` , `jsonp`, `xml`, `csv`, `yaml` | `json`，`xml `，`csv`，`newline`，`php` | IPV4/IPV6 | `en` `de` `es` `pt-BR` `ja` `fr` `zh-CN` `ru` | Null |
+| `json` `jsonp` `xml` `csv` `yaml` | `json` `xml ` `csv` `newline` `php` | IPV4/IPV6 | `en` `de` `es` `pt-BR` `ja` `fr` `zh-CN` `ru` | Null |
 
 
 **TODO: 国内IP定位查询查询**
