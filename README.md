@@ -93,6 +93,7 @@
 | String                                 | String                          | String           | String      | String        |
 | `json` ~~jsonp xml csv yaml~~| `json` ~~xml csv newline php~~ | IPV4/IPV6 | `en` `de` `es` `pt-BR` `ja` `fr` `zh-CN` `ru` | Null |
 
+响应:
 ```json
 {
   "code": "200",
@@ -186,6 +187,29 @@
 }
 ```
 
++ DNS查询
+```url
+ 例：
+    methods: GET
+    参数:None
+    请求地址: url/api/edns
+```
+响应:
+```json
+{
+  "code": "200",
+  "message": "成功003",
+  "data": {
+    "dns": {
+      "geo": "China - China Mobile communications corporation",
+      "ip": "111.23.238.138"
+    }
+  }
+}
+```
+
+
++ IP批量查询
 **TODO: IP批量查询**
 
 > 目前大多数未实现  
