@@ -4,7 +4,7 @@
 
 - [x] ICP备案信息查询
 - [x] IDEA激活码获取
-- [ ] IP查询
+- [x] IP查询
 - [ ] 国内IP定位查询
 - [ ] 和风天气API查询
 - [ ] 随机壁纸
@@ -35,8 +35,20 @@
     参数:None
     请求地址: url/api/cdkey
  ```
++ IP查询
+```url
+ 例：
+    methods: GET
+    参数:
+    | String format                          | String formats                  | String ipaddress | String lang | String fields |
+| -------------------------------------- | ------------------------------- | ---------------- | ----------- | ------------- |
+| String                                 | String                          | String           | String      | String        |
+| `json` , `jsonp`, `xml`, `csv`, `yaml` | `json`，`xml `，`csv`，`newline`，`php` | IPV4/IPV6 | `en` `de` `es` `pt-BR` `ja` `fr` `zh-CN` `ru` | Null |
 
-**TODO: IP查询**
+    请求地址: url/api/IPPosition
+    http://127.0.0.1:5678/api/IPPosition/?format=json&ipaddress=66.249.64.247&lang=zh-CN
+```
+**TODO: 国内IP定位查询查询**
 
 > 目前大多数未实现  
 by [林祈](https://dnslin.com)
