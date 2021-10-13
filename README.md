@@ -85,7 +85,7 @@
  例：
     methods: GET
     请求地址: url/api/IPPosition
-    http://127.0.0.1:5678/api/IPPosition/?format=json&ipaddress=66.249.64.247&lang=zh-CN
+    url/api/IPPosition/?format=json&ipaddress=66.249.64.247&lang=zh-CN
 ```
 参数:
 |  format                          |  ~~formats~~                  |  ipaddress |  lang |  fields |
