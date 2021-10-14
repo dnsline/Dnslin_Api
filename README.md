@@ -7,7 +7,7 @@
 - [x] IP查询
 - [x] IP批量查询
 - [x] DNS查询
-- [ ] 国内IP定位查询
+- [x] 国内IP定位查询
 - [ ] 和风天气API查询
 - [ ] 随机壁纸
 - [ ] 二维码生成
@@ -303,7 +303,37 @@
   ]
 }
 ```
-**TODO: 国内IP定位查询**
+
++ 国内IP定位查询
+```url
+例：
+    methods: GET
+    请求地址: url/api/amap
+    参数:
+        String ipaddress
+    + ipaddress 格式: 1.1.1.1 (支持ipv6) 但是如果您的ip地址乱输入的话可能会出现不可预期的后果当然答案也可能并不是你想要的！！！
+    url示例: /api/amap?ipaddress=223.5.5.5
+```
+响应:
+```json
+{
+  "code": "200",
+  "message": "成功003",
+  "data": {
+    "status": "1",
+    "info": "OK",
+    "infocode": "10000",
+    "country": "中国",
+    "province": "浙江省",
+    "city": "杭州市",
+    "district": "",
+    "isp": "阿里云",
+    "location": "120.153576,30.287459",
+    "ip": "223.5.5.5"
+  }
+}
+```
+**TODO: 和风天气API查询**
 
 > 目前大多数未实现  
 by [林祈](https://dnslin.com)
