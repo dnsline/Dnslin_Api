@@ -6,6 +6,8 @@ import com.alibaba.fastjson.JSON;
 import com.dnslin.dnslin_api.entity.IPAPI;
 import com.dnslin.dnslin_api.entity.IPAPIS;
 import com.dnslin.dnslin_api.entity.Ipstack;
+import com.dnslin.dnslin_api.exception.AppException;
+import com.dnslin.dnslin_api.result.ResponseEnum;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -46,12 +48,12 @@ public class IpPositionService {
                 return null;
             }
         } catch (IOException e) {
-            Console.log("io异常");
+            new AppException(ResponseEnum.SK_BUSY);
         } finally {
             try {
                 httpClient.close();
             } catch (IOException e) {
-                Console.log("io异常");
+                new AppException(ResponseEnum.SK_BUSY);
             }
         }
         return ipstack;

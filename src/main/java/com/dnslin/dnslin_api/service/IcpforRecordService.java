@@ -1,6 +1,8 @@
 package com.dnslin.dnslin_api.service;
 
 import com.dnslin.dnslin_api.entity.IcpParameter;
+import com.dnslin.dnslin_api.exception.AppException;
+import com.dnslin.dnslin_api.result.ResponseEnum;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
@@ -68,7 +70,7 @@ public class IcpforRecordService {
                 response.close();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            new AppException(ResponseEnum.SK_BUSY);
         }
         return null;
     }
