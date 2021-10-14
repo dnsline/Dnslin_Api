@@ -31,8 +31,8 @@ public class IpQueryService {
         String[] split = substring.split(",");//以逗号分割
         HttpPost post = new HttpPost("http://ip-api.com/batch?fields=66842623&&lang="+lang);
         String jsonString = JSON.toJSONString(split);
-        System.out.println(jsonString2);
-        post.setEntity(new StringEntity(jsonString2, "UTF-8"));
+        System.out.println(jsonString);
+        post.setEntity(new StringEntity(jsonString, "UTF-8"));
         String result = null;
         try {
             HttpEntity entity = httpClient.execute(post).getEntity();
