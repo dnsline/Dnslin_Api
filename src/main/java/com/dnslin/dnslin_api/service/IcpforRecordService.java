@@ -214,11 +214,4 @@ public class IcpforRecordService {
         return entityStr;
     }
 
-//    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-//        String cookie = getCookie();
-//        String token = requestToGetToken(cookie);
-//        System.out.println(initiateRequest(cookie, token));
-//    }
-
-
 }
