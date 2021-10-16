@@ -34,7 +34,7 @@ public class AmapIpService {
      */
     public AmapIP makeASignature(String ip) {
         String type = null;
-        if (ip.length()>12){
+        if (ip.length()>15){
             type = "6";
         }else{
             type = "4";
